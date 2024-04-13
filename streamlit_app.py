@@ -18,7 +18,12 @@ def get_completion(prompt, model="gpt-3.5-turbo-0613"):
     )
     return response.choices[0].message.content
 
-
+@st.experimental_fragment
+def add_copy(text):
+    copy_button = st.button("Copy to clipboard")
+    if copy_button:
+        pyperclip.copy(text)
+        st.toast("Copied to clipboard")
 
 def create_ui():
     task_summarise = 'Summarise'
@@ -47,18 +52,17 @@ def create_ui():
                 st.warning('Please input something to proofread and correct')
                 return
 
-            # text1 = 'I like icecream'
-            # text2 = 'I liked icecream'
-            # diff = Redlines(text1, text2)
-            # st.markdown(diff.output_markdown, unsafe_allow_html=True)
-
             prompt = f"proofread and correct this text: ```{txt}```"
             response = get_completion(prompt)
-            diff = Redlines(txt, response)
-            st.markdown(diff.output_markdown, unsafe_allow_html=True)
-            if st.button("Copy to clipboard"):
-                pyperclip.copy(response)
-                st.success("Copied to clipboard")
+            st.text_area('Corrected Version', height=200, value=response, disabled=True)
+            add_copy(response)
+
+            with st.expander("See the corrections"):
+                diff = Redlines(txt, response)
+                st.markdown(diff.output_markdown, unsafe_allow_html=True)
+
+
+        #if option == task_summarise:
         # prompt = f"Summarise the text inside "
         # print(prompt)
         # response = get_completion("who is the best footballer?")
