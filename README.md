@@ -8,7 +8,7 @@ Do regular tasks like `Summary` & `Proofread` using OpenAI GPT API 🚀
 - App is created using [OpenAI](https://openai.com) GPT api and 🎈[Streamlit](https://streamlit.io/).
 - Deployed on [Streamlit Cloud](https://streamlit.io/cloud) ☁️
 
-<img src ="https://github.com/rifat1234/Prompt-To-Do-Common-Tasks/blob/main/Project_UI.png" width="1200px"></img>
+<img src ="https://github.com/rifat1234/Prompt-To-Do-Common-Tasks/blob/main/Project_UI.png" width="900px"></img>
 
 ## How to run this demo
 
