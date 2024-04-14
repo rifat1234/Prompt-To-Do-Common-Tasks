@@ -28,7 +28,36 @@ def add_copy(text):
         st.toast("Copied to clipboard")
 
 
+def setup_sideBar():
+    st.sidebar.header('About')
+    st.sidebar.markdown("""
+        App is created using [OpenAI](https://openai.com) GPT api and 🎈[Streamlit](https://streamlit.io/).
+        """)
+    st.sidebar.markdown("""
+        Developed by [Rifat Monzur](https://www.linkedin.com/in/rifatmonzur/)
+        """)
+
+    st.sidebar.header("Resources")
+    st.sidebar.markdown(
+        """
+        - [Source Code](https://github.com/rifat1234/Prompt-To-Do-Common-Tasks)
+        """)
+
 def create_ui():
+
+
+    # The code below is to control the layout width of the app.
+    if "widen" not in st.session_state:
+        layout = "centered"
+    else:
+        layout = "wide" if st.session_state.widen else "centered"
+
+    #######################################################
+    title = 'Common Tasks using GPT'
+    st.set_page_config(layout=layout, page_title=title, page_icon="🤗")
+    st.title(title)
+
+    setup_sideBar()
     task_summarise = 'Summarise'
     task_proofread = 'Proofread'
     option = st.selectbox(
