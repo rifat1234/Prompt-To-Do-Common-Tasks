@@ -63,7 +63,7 @@ def create_ui():
     option = st.selectbox(
         'Choose Task',
         (task_proofread, task_summarise))
-    txt = st.text_area(f'Write your text', height=200,
+    txt = st.text_area(f'Write your text', height=150,
                        value="", max_chars=10000)
 
     if option == task_summarise:
@@ -84,7 +84,7 @@ def create_ui():
 
             prompt = f"proofread and correct this text: ```{txt}```"
             response = get_completion(prompt)
-            st.text_area('Corrected Version', height=200, value=response, disabled=True)
+            st.text_area('Corrected Version', height=150, value=response, disabled=True)
             add_copy(response)
 
             with st.expander("See the corrections"):
