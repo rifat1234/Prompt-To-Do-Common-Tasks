@@ -5,7 +5,6 @@
 Do regular tasks like `Summary` & `Proofread` using OpenAI GPT API 🚀
 
 ### About the app
-![img.png](Project_UI.png)
 - App is created using [OpenAI](https://openai.com) GPT api and 🎈[Streamlit](https://streamlit.io/).
 - Deployed on [Streamlit Cloud](https://streamlit.io/cloud) ☁️
 
