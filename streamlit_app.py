@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 from redlines import Redlines
-import pyperclip
+from st_copy_to_clipboard import st_copy_to_clipboard
 
 
 def setup_openai():
@@ -24,7 +24,7 @@ def get_completion(prompt, model="gpt-3.5-turbo-0613"):
 def add_copy(text):
     copy_button = st.button("Copy to clipboard")
     if copy_button:
-        pyperclip.copy(text)
+        st_copy_to_clipboard(text)
         st.toast("Copied to clipboard")
 
 
